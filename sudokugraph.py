@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import filedialog
 from solvingfinal import solvesud
 from sudchecker import makecubelist
 from saver import saver		
@@ -42,10 +43,10 @@ for row in listoflist:
 buttonsolve = tkinter.Button(text = "solve", command = lambda: solvesud(listoflist,listofbox))
 buttonsolve.grid(row =10,column = 10)
 
-buttonsave = tkinter.Button(text = "save", command = lambda: saver(listoflist))
+buttonsave = tkinter.Button(text = "save", command = lambda: saver(listoflist,window))
 buttonsave.grid(row =11,column = 10)
 
-buttonload = tkinter.Button(text = "Load", command = lambda: loader(listoflist))
+buttonload = tkinter.Button(text = "Load", command = lambda: loader(listoflist,window))
 buttonload.grid(row =12,column = 10)
 
 window.mainloop()

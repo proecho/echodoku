@@ -1,19 +1,23 @@
 import sys
 import tkinter
+from tkinter import filedialog
 
 
-def saver(listoflist):
-	filesave = open(input("what filename?"),"w")
+
+def saver(listoflist,window):
+	window.filename = filedialog.asksaveasfilename(initialdir = "/echo/echodoku/savesudos", title = "save sudoku", defaultextension = ".sud" )
+	filesave = open(window.filename,"w")
 	for listing in listoflist:
-		filesave.write([str(box.get()) for box in listing].join(","))
+		filesave.write(",".join([str(box.get()) for box in listing]))
 		filesave.write("\n")
 
 	filesave.close()
 
 
-def loader(listoflist):
+def loader(listoflist,window):
 	listofvalue =[]
-	fileload = open(input("what filename?"), "r")
+	window.filename = filedialog.askopenfilename(initialdir = "/echo/echodoku/savesudos",title = "Select saved sudoku",filetypes = [("sudoku files" , "*.sud" )])
+	fileload = open(window.filename,"r")
 	line = fileload.readline()
 	while line:
 		listed = line.split(",")
