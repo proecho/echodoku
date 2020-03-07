@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import tkinter
 from tkinter import filedialog
 from solvingfinal import solvesud
